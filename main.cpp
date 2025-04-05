@@ -1,9 +1,19 @@
-#ifndef INCLUDES_HPP_INCLUDED
-#define INCLUDES_HPP_INCLUDED
+#include "includes.hpp"
 
-namespace ray
+int main()
 {
-	#include <raylib.h>
-}
+	ray::InitWindow( 280, 720, "Rayppy Bird" );
 
-#endif
+	while( !ray::WindowShouldClose() )
+	{
+		ray::BeginDrawing();
+
+		ray::DrawText( "Rayppy Bird is comming!!", 32, 32, 32, ray::BLACK );
+
+		ray::EndDrawing();
+	}
+
+	ray::CloseWindow();
+
+	return 0;
+}
