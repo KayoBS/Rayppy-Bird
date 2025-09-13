@@ -5,5 +5,6 @@ namespace ray
 {
 	#include <raylib.h>
 }
+#include"objects/entity.hpp"
 
 #endif

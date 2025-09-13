@@ -3,19 +3,35 @@
 int main()
 {
 	const char* winName {"Rayppy Bird"};
-	const unsigned short winSize[2] {340,640};
+	const unsigned short winSize[2] {288,512};
 
 	ray::InitWindow( winSize[0], winSize[1], winName );
+  
+  ray::SetTargetFPS(60);
+
+  //game objects
+  Entity bird( "../media/sprites/bird-upflap.png", 100.f, 100.f );
+  Entity background( "../media/sprites/background-day.png", 0.f, 0.f );
 
 	while( !ray::WindowShouldClose() )
 	{
-		ray::BeginDrawing();
+    ray::BeginDrawing();
 
-		ray::ClearBackground( ray::RAYWHITE );
-		ray::DrawText( "Rayppy Bird is comming!!", 32, 32, 24, ray::BLACK );
+    ray::ClearBackground( ray::RAYWHITE );
 
-		ray::EndDrawing();
+    background.draw();
+    ray::DrawText( "Rayppy Bird is comming!!", 32, 32, 20, ray::BLACK );
+    bird.draw();
+    bird.sety( bird.gety() + 5 );
+
+    if( bird.gety() > winSize[1] )
+    {
+      bird.sety(-24);
+    }
+
+    ray::EndDrawing();
 	}
+
 
 	ray::CloseWindow();
 
