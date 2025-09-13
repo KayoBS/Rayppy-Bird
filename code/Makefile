@@ -4,7 +4,7 @@ LD=g++
 DEBUG=-s
 OBJS=main.cpp
 WARN=-Wall
-CVER=-std=c99
+#CVER=-std=c99
 RAY=-lraylib
 IM=-lm
 PTHREAD=-lpthread
